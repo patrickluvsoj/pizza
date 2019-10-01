@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="title">Menu</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+        <script id="pizza" type="text/template">
+            <form action="addcart" method="post">
+                <h5>Type</h5>
+                <input type="radio" name="pizza" value="regular">Regular<br>
+                <input type="radio" name="pizza" value="siciian">Sicilian<br>
+                <h5>Size</h5>
+                <input type="radio" name="size" value="s">Small<br>
+                <input type="radio" name="size" value="l">Large<br>
+                <h5>Toppings</h5>
+                <input type="checkbox" name="topping" value="mushroom">Mushroom<br>
+                <input type="checkbox" name="topping" value="pepperoni">Pepperoni<br>
+                <input type="checkbox" name="topping" value="sausage">Sausage<br>
+                <input type="checkbox" name="topping" value="onion">Onion<br>
+                <label>Qty</label>
+                <input type="text" name="qty"><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </script>
+        <script id="subs" type="text/template">
+            <form action="addcart" method="post">
+                <h5>Type</h5>
+                <input type="radio" name="sub" value="cheese">Cheese<br>
+                <input type="radio" name="sub" value="italian">Italian<br>
+                <input type="radio" name="sub" value="ham+cheese">Ham & Cheese<br>
+                <input type="radio" name="sub" value="meatball">Meatball<br>
+                <input type="radio" name="sub" value="tuna">Tuna<br>
+                <input type="radio" name="sub" value="turkey">Turkey<br>
+                <input type="radio" id="steakcheese" name="sub" value="steak+cheese">Steak'n Cheese<br>
+                <h5>Size</h5>
+                <input type="radio" name="size" value="s">Small<br>
+                <input type="radio" name="size" value="l">Large<br>
+                <h5>Add-ons</h5>
+                <input type="checkbox" name="topping" value="cheese">Extra Cheese<br>
+                <!-- Add it as a conditional when steak + cheese is select -->
+                <div id="steakaddon">
+                </div>
+                <label>Qty</label>
+                <input type="text" name="qty"><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </script>
+        <script id="salads" type="text/template">
+            <form action="addcart" method="post">
+                <h5>Type</h5>
+                <input type="radio" name="sub" value="garden">Garden Salad<br>
+                <input type="radio" name="sub" value="greek">Greek Salad<br>
+                <input type="radio" name="sub" value="antipasto">Antipasto<br>
+                <input type="radio" name="sub" value="tuna">Salad w/ Tuna<br>
+                <label>Qty</label>
+                <input type="text" name="qty"><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </script>
+        <script id="pasta" type="text/template">
+            <form action="addcart" method="post">
+                <h5>Type</h5>
+                <input type="radio" name="sub" value="mozzarella">Baked Ziti w/ Mozzarella<br>
+                <input type="radio" name="sub" value="meatballs">Baked Ziti w/ Meatball<br>
+                <input type="radio" name="sub" value="chicken">Baked Ziti w/ Chicken<br>
+                <label>Qty</label>
+                <input type="text" name="qty"><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </script>
+        <script id="dinner" type="text/template">
+            <form action="addcart" method="post">
+                <h5>Size</h5>
+                <input type="radio" name="sub" value="s">Small<br>
+                <input type="radio" name="sub" value="l">Large<br>
+                <h5>Pllatters</h5>
+                <input type="radio" name="sub" value="garden">Garden Salad<br>
+                <input type="radio" name="sub" value="greek">Greek Salad<br>
+                <input type="radio" name="sub" value="antipasto">Antipasto<br>
+                <input type="radio" name="sub" value="ziit">Baked Ziti<br>
+                <input type="radio" name="sub" value="meatball-parm">Meatball Parm<br>
+                <input type="radio" name="sub" value="chicken-parm">Chicken Parm<br>
+                <label>Qty</label>
+                <input type="text" name="qty"><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </script>
+        <script id="subaddon" type="text/template">
+            <input type="checkbox" name="topping" value="mushrooms">Mushroom<br>
+            <input type="checkbox" name="topping" value="green+peppers">Green Peppers<br>
+            <input type="checkbox" name="topping" value="onions">Onion<br>
+        </script>
+
+        <script>
+            // check when page loads
+            // create 3 buttons for producrt categories
+            // make onclick event for each button
+                // onclick, render message based on clicked button
+            // enabling history API (post)
+            // create form templates for 3 products (dice3 / handlebars)
+                // handlebars tempalte 
+            // Add a onclick script when steak and cheese is selected
+            // Add a defualt page when page reloads
+            // Add a input field to get quantity
+            //load current form when you hit refresh/browser load
+            // Add a way to calculate pricing
+            
+
+            // window.addEventListener("beforeunload", function(e){
+            //     alert(`refresh event fired ${e}`);
+
+            //     var category = "pizza";
+
+            //     const template = Handlebars.compile(document.querySelector(`#${category}`).innerHTML);
+            //     const content = template ();
+
+            //     document.querySel   ctor("#content").innerHTML = content;
+
+            //     e.preventDefault();
+            //     e.returnValue = "";
+            // });
+
+
+            document.addEventListener("DOMContentLoaded", () => {
+                var category = "pizza";
+
+                const template = Handlebars.compile(document.querySelector(`#${category}`).innerHTML);
+                const content = template ();
+
+                document.querySelector("#content").innerHTML = content;
+
+                document.querySelectorAll(".button").forEach(link => {
+                    link.onclick =  () =>  {
+                        var category = link.dataset.page;
+                        loadPage(category);
+                        return false;
+                    };
+                });
+            });
+            
+            
+            // add onpop state
+            window.onpopstate = (e) => {
+                var category = e.state.body;
+
+                const template = Handlebars.compile(document.querySelector(`#${category}`).innerHTML);
+                const content = template();
+
+                //change to a form content using tempalte
+                document.querySelector("#content").innerHTML = content;
+                alert("state: " + JSON.stringify(state.body));
+            };
+
+
+            function loadPage(category) {
+                // Template for roll results
+                const template = Handlebars.compile(document.querySelector(`#${category}`).innerHTML);
+                const content = template();
+
+                const request = new XMLHttpRequest();
+                request.open('GET', `/menu/${category}`);
+
+                request.onload = () => {
+                    var category = request.responseText;
+
+                    //change to a form content using tempalte
+                    document.querySelector("#content").innerHTML = content;
+
+                    //push historu
+                    history.pushState({'body': category}, category, `/menu/${category}`);
+
+                    document.querySelector("#steakcheese").onclick = () => {
+                        const template = Handlebars.compile(document.querySelector("#subaddon").innerHTML);
+                        const content = template();
+                        document.querySelector("#steakaddon").innerHTML = content;
+                    }; 
+                };
+                request.send();
+            };
+
+        </script>
+    </head>
+    <body marging>
+        <h3>Menu</h3>
+        <a href="" class="button" data-page="pizza">Pizza</a>
+        <a href="" class="button" data-page="subs">Subs</a>
+        <a href="" class="button" data-page="pasta">Pasta</a>
+        <a href="" class="button" data-page="salads">Salads</a>
+        <a href="" class="button" data-page="dinner">Dinner</a>
+        <div id="content"></div>
+    </body>
+</html>
