@@ -34,6 +34,7 @@ def register(request):
 
 #3 DB  
 #   Setup DB model
+    # ensure  pricing is facotored into the equation
 #   Hook-up form w/ DB model
 #   Show raw results in a page
 
