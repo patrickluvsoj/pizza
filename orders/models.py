@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 class PizzaT(models.Model):
@@ -42,31 +43,30 @@ class SubT(models.Model):
 
 
 class Product(models.Model):
-    product = models.CharField(max_length=48)
+    name = models.CharField(max_length=48)
     SIZE = (
         ('L', 'Large'),
         ('S', 'Small'),
         ('N', 'None')
     )
     size = models.CharField(max_length=1, choices=SIZE)
-    pizza_toppings = models.ManyToManyField(PizzaT, blank=True, related_name="pizza_toppings")
-    sub_toppings = models.ManyToManyField(SubT, blank=True, related_name="sub_toppings")
+    ptoppings = models.ManyToManyField(PizzaT, blank=True, related_name="pizzas")
+    stoppings = models.ManyToManyField(SubT, blank=True, related_name="subs")
     cheese = models.BooleanField()
     topping_ct = models.IntegerField()
     price = models.FloatField()
 
     def __str__(self):
-        return f"{self.product} {self.price}"
+        return f"{self.name} {self.price}"
 
 
 class Order(models.Model):
-    products = models.ManyToManyField(Product, blank=True, related_name="products")
+    products = models.ManyToManyField(Product, blank=True, related_name="orders")
     date = models.DateField(auto_now=True)
-    username = models.CharField(max_length=48)
+    username = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="orders")
 
     def __str__(self):
-        return f"{self.username} {self.products} {self.date}"
-
+        return f"The user: {self.username}, ordered {self.products} at {self.date}"
 
 
 

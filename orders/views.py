@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import Order, Product, SubT, PizzaT
 
 # Create your views here.
 def index(request):
@@ -12,7 +13,10 @@ def submenu(request, category):
     return HttpResponse(category)
 
 def cart(request):
-    return HttpResponse("Cart page")
+    cart = Order.date
+    print(Order.products)
+
+    return HttpResponse(f'You have ordered: {cart}')
 
 def register(request):
     return HttpResponse("Sign-up page")
@@ -30,6 +34,7 @@ def register(request):
 #2 Auth
 #   setup login and registratgion page
 #   setup authenticaiton using Django
+#   check out users project for Django
 
 
 #3 DB  
